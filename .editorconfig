@@ -1,0 +1,20 @@
+# Editorconfig will stop the recursive search here
+root = true
+
+[*.{py,json,yml,yaml,md}]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 99
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[*.{json,yml,yaml}]
+charset = utf-8
+indent_style = space
+indent_size = 2

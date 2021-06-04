@@ -1,0 +1,14 @@
+[flake8]
+ignore =
+    # E203 whitespace before ':' - not PEP8 compliant!
+    E203,
+    # E402 module level import not at top of file
+    E402,
+    # W503 line break before binary operator
+    W503,
+    # W504 line break after binary operator
+    W504,
+    # Logging statement uses exception in arguments
+    G200,
+max-line-length = 99
+enable-extensions = G
