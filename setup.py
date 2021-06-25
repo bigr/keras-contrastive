@@ -10,4 +10,5 @@ setup(
     author_email="ja@bigr.cz",
     packages=find_packages(),
     python_requires=">=3.8",
+    tests_require=["pytest", "scikit-learn"],
 )
