@@ -1,7 +1,17 @@
 """Commons for testing."""
 
+import random
+
+import tensorflow as tf
 from pytest import fixture
 from sklearn.datasets import load_digits
+
+
+@fixture(autouse=True)
+def fix_random_seed():
+    """Set random seed to constant."""
+    random.seed(0)
+    tf.random.set_seed(0)
 
 
 @fixture
