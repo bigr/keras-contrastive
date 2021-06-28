@@ -36,6 +36,25 @@ def simple_dense_decoder():
 
 
 @fixture
+def simple_dense_generator(simple_dense_decoder):
+    """Return generator model."""
+    inp = layers.Input((8,))
+    out = layers.Dense(64, name="generator_dense1")(inp)
+    out = layers.Activation("relu", name="generator_final_activation")(out)
+    return keras.Model(inp, out)
+
+
+@fixture
+def simple_dense_discriminator():
+    """Return discriminator model."""
+    inp = layers.Input((64,))
+    out = layers.Dense(16, name="discriminator_dense1", activation="relu")(inp)
+    out = layers.Dense(1, name="discriminator_dense2")(out)
+    out = layers.Activation("sigmoid", name="discriminator_final_activation")(out)
+    return keras.Model(inp, out)
+
+
+@fixture
 def digits_dataset():
     """Return toy dataset for tests (all sets)."""
     data, targets = load_digits(n_class=5, return_X_y=True)
