@@ -55,6 +55,16 @@ def simple_dense_discriminator():
 
 
 @fixture
+def simple_dense_noice_discriminator():
+    """Return latent vectors discriminator model."""
+    inp = layers.Input((8,))
+    out = layers.Dense(16, name="discriminator_dense1", activation="relu")(inp)
+    out = layers.Dense(1, name="discriminator_dense2")(out)
+    out = layers.Activation("sigmoid", name="discriminator_final_activation")(out)
+    return keras.Model(inp, out)
+
+
+@fixture
 def digits_dataset():
     """Return toy dataset for tests (all sets)."""
     data, targets = load_digits(n_class=5, return_X_y=True)
